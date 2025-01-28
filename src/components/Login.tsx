@@ -1,4 +1,4 @@
-import AuthModal from "./utils/AuthModal";
+import AuthModal from "./AuthModal";
 
 const Login: React.FC = () => {
   return (
