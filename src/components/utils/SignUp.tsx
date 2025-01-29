@@ -6,13 +6,13 @@ const SignUp: React.FC = () => {
       <div className="w-fit bg-gray-500 rounded-full flex mx-auto">
         <Link
           to="/signIn"
-          className="py-2 px-4 lg:px-10 rounded-full bg-transparent font-semibold text-white"
+          className="py-2 px-8 lg:px-12 rounded-full bg-transparent font-semibold text-white"
         >
           Sign In
         </Link>
         <Link
           to="/signUp"
-          className="py-2 px-4 lg:px-10 rounded-full bg-[#6363FF] font-semibold text-white"
+          className="py-2 px-8 lg:px-12 rounded-full bg-[#6363FF] font-semibold text-white"
         >
           Sign Up
         </Link>

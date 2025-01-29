@@ -20,14 +20,14 @@ const routes: RouteType[] = [
 
 const AuthModal: React.FC = () => {
   return (
-    <section className="w-full h-full bg-transparent backdrop-blur-xs rounded-2xl py-8 border border-[#6363FF] text-white shadow-lg relative">
+    <section className="w-full h-full  bg-transparent backdrop-blur-xs rounded-2xl py-8 border border-[#6363FF] text-white shadow-lg relative">
       {/* background */}
       <div className="bg-gradient-to-b to-black via-black h-full w-full absolute top-0 left-0 opacity-70 -z-10 rounded-2xl"></div>
 
-      <h1 className="text-center pb-8 text-2xl font-extrabold">
+      <h1 className="text-center pb-8 text-2xl lg:text-3xl font-extrabold">
         Welcolme of ViFlow
       </h1>
-      <div className="px-10 h-full flex flex-col gap-y-24">
+      <div className="px-6 lg:px-10 h-full flex flex-col gap-y-24">
         <Router>
           <Routes>
             {routes.map((route, index) => (

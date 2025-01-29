@@ -3,7 +3,7 @@ import Login from "./components/Login";
 const App: React.FC = () => {
   return (
     <>
-      <div className="h-screen w-full overflow-hidden">
+      <div className="min-h w-full overflow-hidden">
         <Login />
       </div>
     </>
