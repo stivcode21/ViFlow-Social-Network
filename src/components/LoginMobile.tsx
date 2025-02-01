@@ -7,7 +7,7 @@ const LoginMobile: React.FC = () => {
     <div className="h-full w-full flex flex-col items-center justify-center z-10 gap-10">
       <div className="flex flex-col items-center justify-center lg:gap-10">
         <img
-          src="./LogoViflow.webp"
+          src="/LogoViflow.webp"
           alt="logo"
           className="w-1/2 h-1/2 object-contain mb-6"
         />

@@ -7,7 +7,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <div className="bg-[url(./bg.webp)] w-full h-screen bg-center bg-cover relative box">
+      <div className="bg-[url(/bgg.jpg)] w-full h-screen bg-center bg-cover relative box">
         <div className="bg-gradient-to-b to-black via-black h-full w-full absolute top-0 left-0 opacity-75"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full py-10 md:py-0">
