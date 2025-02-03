@@ -14,7 +14,7 @@ const AuthCode = () => {
     index: number,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const value = event.target.value.replace(/\D/g, "").slice(0, 1); // Solo 1 número
+    const value = event.target.value.replace(/^[A-Z]+$/g, "").slice(0, 1); // Solo 1 número
 
     const newCode = [...code];
     newCode[index] = value;
