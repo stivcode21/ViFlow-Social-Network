@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import SignIn from "./utils/SignIn";
-import SignUp from "./utils/SignUp";
-import AuthCode from "./utils/AuthCode";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import AuthCode from "./AuthCode";
 
 type RouteType = {
   path: string;

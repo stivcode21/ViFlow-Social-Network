@@ -1,4 +1,4 @@
-import { useIuStore } from "../store/uiStore";
+import { useIuStore } from "../../store/uiStore";
 
 const LoginMobile: React.FC = () => {
   const { setAuthModal } = useIuStore();

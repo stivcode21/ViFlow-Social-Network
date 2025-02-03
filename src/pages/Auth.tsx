@@ -1,8 +1,8 @@
-import AuthModal from "./AuthModal";
-import LoginMobile from "./LoginMobile";
+import AuthModal from "../components/auth/AuthModal";
+import LoginMobile from "../components/auth/AuthInfo";
 import { useIuStore } from "../store/uiStore";
 
-const Login: React.FC = () => {
+const Auth: React.FC = () => {
   const authModal = useIuStore((state) => state.authModal);
 
   return (
@@ -22,4 +22,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Auth;
