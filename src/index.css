@@ -12,6 +12,16 @@ html {
     @apply px-[7%] mx-auto;
   }
 
+  .margin {
+    @apply w-full mx-auto h-full;
+  }
+
+  @media (min-width: 1024px) {
+    .margin {
+      @apply w-[50%];
+    }
+  }
+
   @media (min-width: 2200px) {
     .box {
       @apply px-[22%];
