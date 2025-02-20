@@ -1,5 +1,11 @@
+import MainLayout from "../layouts/MainLayout";
+
 const Search: React.FC = () => {
-  return <div>Search</div>;
+  return (
+    <MainLayout>
+      <div className="w-full h-auto bg-blue-300">search</div>
+    </MainLayout>
+  );
 };
 
 export default Search;
