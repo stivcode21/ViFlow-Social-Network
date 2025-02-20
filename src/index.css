@@ -22,15 +22,21 @@ html {
     @apply bg-[#0A0A0A]/50 bg-clip-padding backdrop-filter backdrop-blur opacity-100 z-[100] transition-all duration-300;
   }
 
-  @media (min-width: 1024px) {
-    .margin {
-      @apply w-[50%];
-    }
-  }
-
   @media (min-width: 2200px) {
     .box {
       @apply px-[22%];
+    }
+  }
+
+  @media (min-width: 768px) {
+    .margin {
+      @apply w-[70%];
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .margin {
+      @apply w-[50%];
     }
   }
 }
