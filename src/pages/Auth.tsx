@@ -3,7 +3,7 @@ import LoginMobile from "../components/auth/AuthInfo";
 import { useIuStore } from "../store/uiStore";
 
 const Auth: React.FC = () => {
-  const authModal = useIuStore((state) => state.authModal);
+  const { authModal } = useIuStore();
 
   return (
     <>
