@@ -2,7 +2,6 @@ import {
   HeartIcon,
   ChatBubbleOvalLeftIcon,
   ArrowPathRoundedSquareIcon,
-  // PaperAirplaneIcon,
   EllipsisHorizontalIcon,
 } from "@heroicons/react/24/outline";
 import { ReactNode, useState } from "react";
@@ -15,7 +14,6 @@ interface PostProps {
   amountLike?: number;
   amountComments?: number;
   amountRepost?: number;
-
   toggleModalComment: () => void;
 }
 
@@ -30,8 +28,9 @@ const Post: React.FC<PostProps> = ({
   toggleModalComment,
 }) => {
   const [liked, setLiked] = useState(false);
-  const [localLikes, setLocalLikes] = useState(amountLike ?? 0); // Manejar los likes de forma local
+  const [localLikes, setLocalLikes] = useState(amountLike ?? 0);
 
+  //accion del boton de like
   const handleLiked = () => {
     const newLikedState = !liked;
     setLiked(newLikedState);
@@ -70,6 +69,7 @@ const Post: React.FC<PostProps> = ({
               {localLikes > 0 ? localLikes : ""}
             </p>
           </li>
+
           <li
             onClick={toggleModalComment}
             className="button-theme flex gap-1 items-center"
@@ -77,15 +77,13 @@ const Post: React.FC<PostProps> = ({
             <ChatBubbleOvalLeftIcon className="w-6 h-6" />
             <p className="text-xs text-[#ccc] ">{amountComments}</p>
           </li>
+
           <li className="button-theme flex gap-1 items-center">
             <ArrowPathRoundedSquareIcon className="w-6 h-6" />
             <p className="text-xs text-[#ccc] ">{amountRepost}</p>
           </li>
-          {/* <li className="button-theme flex gap-1 items-center">
-            <PaperAirplaneIcon className="w-5 h-5 -rotate-30" />
-            <p className="text-xs text-[#ccc] ">3</p>
-          </li> */}
         </ul>
+
         <button className="button-theme absolute top-3 right-0">
           <EllipsisHorizontalIcon className="w-6 h-6" />
         </button>

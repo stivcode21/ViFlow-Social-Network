@@ -1,4 +1,4 @@
-const NewPost: React.FC = () => {
+const NewPostInput: React.FC = () => {
   return (
     <header className="px-6 mt-2 py-4 border-b border-style flex items-center w-full gap-2">
       <img
@@ -18,4 +18,4 @@ const NewPost: React.FC = () => {
   );
 };
 
-export default NewPost;
+export default NewPostInput;

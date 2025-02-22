@@ -81,10 +81,6 @@ html {
     animation: modal-show 0.2s ease-out;
   }
 
-  .modal-hidden {
-    animation: modal-hide 0.2s ease-in forwards;
-  }
-
   @keyframes modal-show {
     from {
       opacity: 0;
@@ -93,17 +89,6 @@ html {
     to {
       opacity: 1;
       transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes modal-hide {
-    from {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(10px) scale(0.95);
     }
   }
 }
