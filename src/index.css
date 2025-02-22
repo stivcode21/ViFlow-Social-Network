@@ -9,6 +9,8 @@ html {
   color: #fff;
 }
 
+/* ======= CLASES ======== */
+
 @layer base {
   .box {
     @apply px-[7%] mx-auto;
@@ -32,6 +34,8 @@ html {
     @apply bg-[#0A0A0A]/50 bg-clip-padding backdrop-filter backdrop-blur opacity-100 z-[100] transition-all duration-300;
   }
 
+  /* ======= MEDIA QUERIES ======= */
+
   @media (min-width: 768px) {
     .margin {
       @apply w-[65%];
@@ -40,7 +44,7 @@ html {
 
   @media (min-width: 1024px) {
     .margin {
-      @apply w-[50%];
+      @apply w-[45%];
     }
   }
 
@@ -53,6 +57,53 @@ html {
   @media (min-width: 2200px) {
     .box {
       @apply px-[22%];
+    }
+  }
+
+  /* ======= ANIMACIONES ======= */
+  .hover-fill {
+    @apply relative overflow-hidden;
+  }
+
+  .hover-fill::before {
+    content: "";
+    @apply absolute inset-0 bg-[#171717] transition-transform ease-in-out duration-100;
+    transform: scaleX(0);
+    transform-origin: center;
+    z-index: -1;
+  }
+
+  .hover-fill:hover::before {
+    transform: scaleX(1);
+  }
+
+  .modal-content {
+    animation: modal-show 0.2s ease-out;
+  }
+
+  .modal-hidden {
+    animation: modal-hide 0.2s ease-in forwards;
+  }
+
+  @keyframes modal-show {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes modal-hide {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
     }
   }
 }

@@ -5,16 +5,39 @@ import {
   MagnifyingGlassIcon,
   PlusIcon,
   UserIcon,
-} from "@heroicons/react/20/solid";
+} from "@heroicons/react/24/outline";
 
-import { Link } from "react-router-dom";
+import {
+  HomeIcon as HomeIconSolid,
+  MagnifyingGlassIcon as MagnifyingGlassIconSolid,
+  HeartIcon as HeartIconSolid,
+  UserIcon as UserIconSolid,
+} from "@heroicons/react/24/solid";
+
+import { Link, useLocation } from "react-router-dom";
 
 const btnStyle =
-  "W-full h-full hover:bg-[#171717] text-[#888] hover:text-white px-7 sm:px-9 md:px-3 py-2 rounded-xl transition-all ease-in-out";
+  "W-full h-full hover-fill text-[#888] hover:text-white px-7 sm:px-9 md:px-3 py-2 rounded-xl transition-all ease-in-out";
 
 const Navbar: React.FC = () => {
+  const location = useLocation();
+
+  const navItems1 = [
+    { path: "/home", outline: HomeIcon, solid: HomeIconSolid },
+    {
+      path: "/search",
+      outline: MagnifyingGlassIcon,
+      solid: MagnifyingGlassIconSolid,
+    },
+  ];
+
+  const navItems2 = [
+    { path: "/activity", outline: HeartIcon, solid: HeartIconSolid },
+    { path: "/user", outline: UserIcon, solid: UserIconSolid },
+  ];
+
   return (
-    <nav className="w-full md:w-16 h-14 p-2 md:h-full fixed blur-effect-theme text-white flex md:flex-col justify-center md:justify-between items-center  bottom-0 left-0">
+    <nav className="w-full md:w-16 h-14 p-2 md:h-full z-40 fixed blur-effect-theme text-white flex md:flex-col justify-center md:justify-between items-center bottom-0 left-0">
       {/* Logo */}
       <img
         src="/logo.png"
@@ -23,21 +46,36 @@ const Navbar: React.FC = () => {
       />
       {/* Iconos */}
       <div className="w-full flex md:flex-col md:gap-4 justify-between items-center sm:mx-4 md:mx-0">
-        <Link className={`${btnStyle}`} to={"/home"}>
-          <HomeIcon className="w-8 h-8" />
-        </Link>
-        <Link className={`${btnStyle}`} to={"/search"}>
-          <MagnifyingGlassIcon className="w-8 h-8" />
-        </Link>
-        <div className={`${btnStyle} bg-[#171717] text-white`}>
+        {/* iconos home y search */}
+        {navItems1.map(({ path, outline: OutlineIcon, solid: SolidIcon }) => {
+          const isActive = location.pathname === path;
+          return (
+            <Link key={path} className={btnStyle} to={path}>
+              {isActive ? (
+                <SolidIcon className="w-8 h-8 text-white" />
+              ) : (
+                <OutlineIcon className="w-8 h-8" />
+              )}
+            </Link>
+          );
+        })}
+        {/* botton modal post */}
+        <div className={`${btnStyle} bg-[#171717]`}>
           <PlusIcon className="w-8 h-8" />
         </div>
-        <Link className={`${btnStyle}`} to={"/activity"}>
-          <HeartIcon className="w-8 h-8" />
-        </Link>
-        <Link className={`${btnStyle}`} to={"/user"}>
-          <UserIcon className="w-8 h-8" />
-        </Link>
+        {/* iconos activity y perfil */}
+        {navItems2.map(({ path, outline: OutlineIcon, solid: SolidIcon }) => {
+          const isActive = location.pathname === path;
+          return (
+            <Link key={path} className={btnStyle} to={path}>
+              {isActive ? (
+                <SolidIcon className="w-8 h-8 text-white" />
+              ) : (
+                <OutlineIcon className="w-8 h-8" />
+              )}
+            </Link>
+          );
+        })}
       </div>
       {/* Menu icon */}
       <div className="p-2 text-[#888] hover:text-white hidden md:block">

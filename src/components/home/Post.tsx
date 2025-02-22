@@ -15,6 +15,8 @@ interface PostProps {
   amountLike?: number;
   amountComments?: number;
   amountRepost?: number;
+
+  toggleModalComment: () => void;
 }
 
 const Post: React.FC<PostProps> = ({
@@ -25,6 +27,7 @@ const Post: React.FC<PostProps> = ({
   amountLike,
   amountComments,
   amountRepost,
+  toggleModalComment,
 }) => {
   const [liked, setLiked] = useState(false);
   const [localLikes, setLocalLikes] = useState(amountLike ?? 0); // Manejar los likes de forma local
@@ -67,7 +70,10 @@ const Post: React.FC<PostProps> = ({
               {localLikes > 0 ? localLikes : ""}
             </p>
           </li>
-          <li className="button-theme flex gap-1 items-center">
+          <li
+            onClick={toggleModalComment}
+            className="button-theme flex gap-1 items-center"
+          >
             <ChatBubbleOvalLeftIcon className="w-6 h-6" />
             <p className="text-xs text-[#ccc] ">{amountComments}</p>
           </li>
