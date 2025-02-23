@@ -1,8 +1,13 @@
+import { useUserStore } from "../../store/userStore";
+
 const NewPostInput: React.FC = () => {
+  const { logoState } = useUserStore();
+  // console.log("Logo State:", logoState);
+
   return (
     <header className="px-6 mt-2 py-4 border-b border-style flex items-center w-full gap-2">
       <img
-        src="/userPreviu.webp"
+        src={logoState}
         alt="logo"
         className="w-9 h-9 object-contain rounded-full"
       />

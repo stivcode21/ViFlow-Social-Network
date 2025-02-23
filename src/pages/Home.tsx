@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import { PostData, addCommentToPost, CommentType } from "../data/data";
 import NewComment from "../components/home/newComment";
 import { useState } from "react";
+import { useUserStore } from "../store/userStore";
 
 const Home: React.FC = () => {
   const [modalComment, setModalComment] = useState(false);
@@ -16,13 +17,16 @@ const Home: React.FC = () => {
     setModalComment(true);
   };
 
+  //info user estado global
+  const { logoState, nameState } = useUserStore();
+
   // Añadir nuevo comentario
   const handleAddComment = () => {
     if (selectedPost && newComment) {
       const comment: CommentType = {
         id: 0, // Se actualizará al añadirlo
-        img: "/userPreviu.webp",
-        name: "Nuevo Usuario",
+        img: logoState,
+        name: nameState,
         post: newComment,
         time: "Justo ahora",
       };
