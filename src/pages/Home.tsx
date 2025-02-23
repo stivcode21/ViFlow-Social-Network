@@ -1,24 +1,27 @@
-import NewPostInput from "../components/home/NewPostInput";
+import NewPostHeader from "../components/home/NewPostHeader";
 import Post from "../components/home/Post";
 import MainLayout from "../layouts/MainLayout";
 import { PostData, addCommentToPost, CommentType } from "../data/data";
 import NewComment from "../components/home/newComment";
 import { useState } from "react";
 import { useUserStore } from "../store/userStore";
+import { useIuStore } from "../store/uiStore";
+import NewPostModal from "../components/home/NewPostModal";
 
 const Home: React.FC = () => {
   const [modalComment, setModalComment] = useState(false);
   const [selectedPost, setSelectedPost] = useState<number | null>(null);
   const [newComment, setNewComment] = useState<string>("");
 
-  // Abrir modal y obtener data
+  //estados globales
+  const { logoState, nameState } = useUserStore();
+  const { newPostModal } = useIuStore();
+
+  // Abrir modalNewcommet y obtener data
   const handleCommentClick = (postId: number) => {
     setSelectedPost(postId);
     setModalComment(true);
   };
-
-  //info user estado global
-  const { logoState, nameState } = useUserStore();
 
   // Añadir nuevo comentario
   const handleAddComment = () => {
@@ -40,6 +43,9 @@ const Home: React.FC = () => {
 
   return (
     <>
+      {newPostModal && <NewPostModal />}
+
+      {/* Modal para nuevo comentario */}
       {modalComment && filterInfo && (
         <NewComment
           toggleModalComment={() => setModalComment(false)} //cerrar modal
@@ -49,10 +55,11 @@ const Home: React.FC = () => {
           handleAddComment={handleAddComment} //agregar nuevo comentario
         />
       )}
-      {/* Layout principal */}
+
+      {/*------- Layout principal -------- */}
       <MainLayout>
         <div className="w-full h-auto">
-          <NewPostInput />
+          <NewPostHeader />
           {PostData?.map((post, index) => (
             <Post
               key={index}

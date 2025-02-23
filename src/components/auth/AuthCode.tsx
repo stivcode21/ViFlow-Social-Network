@@ -48,7 +48,7 @@ const AuthCode = () => {
 
   useEffect(() => {
     if (isValid) {
-      navigate("/create-profile"); // Redirige a la ruta si el código es válido
+      navigate("/auth/create-profile"); // Redirige a la ruta si el código es válido
     }
   }, [isValid, navigate]);
 
