@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import AuthCode from "./AuthCode";
+import CreateProfile from "./CreateProfile";
 
 type RouteType = {
   path: string;
@@ -13,6 +14,7 @@ const routes: RouteType[] = [
   { path: "signIn", element: <SignIn /> },
   { path: "signUp", element: <SignUp /> },
   { path: "code", element: <AuthCode /> },
+  { path: "create-profile", element: <CreateProfile /> },
 ];
 
 const AuthModal: React.FC = () => {

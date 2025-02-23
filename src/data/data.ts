@@ -26,30 +26,9 @@ const PostData: PostType[] = [
     post: "Hola busco gente para charlar",
     time: "2 minutos",
     amountLike: 21,
-    amountComments: 4,
+    amountComments: 3,
     amountRepost: 1,
     comments: [
-      {
-        id: 1,
-        img: "https://fifpro.org/media/fhmfhvkx/messi-world-cup.jpg?rxy=0.48356841796117644,0.31512414378031967&width=1600&height=1024&rnd=133210253587130000",
-        name: "Messi",
-        post: "Que miras bobo!",
-        time: "10 minutos",
-      },
-      {
-        id: 2,
-        img: "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/8B70/production/_102469653_gettyimages-962792890.jpg.webp",
-        name: "Cr7",
-        post: "SSiiiiuuuuUUUUU",
-        time: "8 horas",
-      },
-      {
-        id: 3,
-        img: "https://tmssl.akamaized.net/images/foto/galerie/kylian-mbappe-real-madrid-2024-25-presentation-1721130438-142555.jpg",
-        name: "Mbappe",
-        post: "hala Madrid",
-        time: "5 horas",
-      },
       {
         id: 1,
         img: "https://fifpro.org/media/fhmfhvkx/messi-world-cup.jpg?rxy=0.48356841796117644,0.31512414378031967&width=1600&height=1024&rnd=133210253587130000",
@@ -80,7 +59,6 @@ const PostData: PostType[] = [
     post: "Hola soy Darek",
     time: "1 hora",
     amountLike: 12,
-    amountComments: 10,
     amountRepost: 2,
     comments: [],
   },
@@ -90,7 +68,6 @@ const PostData: PostType[] = [
     post: "El pepe",
     time: "20 minutos",
     amountLike: 1,
-    amountComments: 1,
     comments: [],
   },
 ];
@@ -101,6 +78,7 @@ export const addCommentToPost = (postId: number, comment: CommentType) => {
   if (post) {
     comment.id = post.comments ? post.comments.length + 1 : 1;
     post.comments = post.comments ? [...post.comments, comment] : [comment];
+    post.amountComments = post.comments && post.comments.length;
   }
 };
 

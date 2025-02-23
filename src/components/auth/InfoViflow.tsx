@@ -1,6 +1,6 @@
 import { useIuStore } from "../../store/uiStore";
 
-const LoginMobile: React.FC = () => {
+const InfoViflow: React.FC = () => {
   const { setAuthModal } = useIuStore();
 
   return (
@@ -37,4 +37,4 @@ const LoginMobile: React.FC = () => {
   );
 };
 
-export default LoginMobile;
+export default InfoViflow;
