@@ -50,6 +50,27 @@ const PostData: PostType[] = [
         post: "hala Madrid",
         time: "5 horas",
       },
+      {
+        id: 1,
+        img: "https://fifpro.org/media/fhmfhvkx/messi-world-cup.jpg?rxy=0.48356841796117644,0.31512414378031967&width=1600&height=1024&rnd=133210253587130000",
+        name: "Messi",
+        post: "Que miras bobo!",
+        time: "10 minutos",
+      },
+      {
+        id: 2,
+        img: "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/8B70/production/_102469653_gettyimages-962792890.jpg.webp",
+        name: "Cr7",
+        post: "SSiiiiuuuuUUUUU",
+        time: "8 horas",
+      },
+      {
+        id: 3,
+        img: "https://tmssl.akamaized.net/images/foto/galerie/kylian-mbappe-real-madrid-2024-25-presentation-1721130438-142555.jpg",
+        name: "Mbappe",
+        post: "hala Madrid",
+        time: "5 horas",
+      },
     ],
   },
   {
@@ -73,5 +94,14 @@ const PostData: PostType[] = [
     comments: [],
   },
 ];
+
+//añadir comentario
+export const addCommentToPost = (postId: number, comment: CommentType) => {
+  const post = PostData.find((post) => post.id === postId);
+  if (post) {
+    comment.id = post.comments ? post.comments.length + 1 : 1;
+    post.comments = post.comments ? [...post.comments, comment] : [comment];
+  }
+};
 
 export { PostData };

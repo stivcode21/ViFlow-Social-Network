@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="w-full md:w-16 h-14 p-2 md:h-full z-40 fixed blur-effect-theme text-white flex md:flex-col justify-center md:justify-between items-center bottom-0 left-0">
+    <nav className="w-full md:w-16 h-14 p-2 md:h-full z-30 fixed blur-effect-theme text-white flex md:flex-col justify-center md:justify-between items-center bottom-0 left-0">
       {/* Logo */}
       <img
         src="/logo.png"
