@@ -13,14 +13,15 @@ import {
   HeartIcon as HeartIconSolid,
   UserIcon as UserIconSolid,
 } from "@heroicons/react/24/solid";
-
 import { Link, useLocation } from "react-router-dom";
-
-const btnStyle =
-  "W-full h-full hover-fill text-[#888] hover:text-white px-7 sm:px-9 md:px-3 py-2 rounded-xl transition-all ease-in-out";
+import { useIuStore } from "../store/uiStore";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
+  const { setNewPostModal } = useIuStore();
+
+  const btnStyle =
+    "W-full h-full hover-fill text-[#888] hover:text-white px-7 sm:px-9 md:px-3 py-2 rounded-xl transition-all ease-in-out";
 
   const navItems1 = [
     { path: "/home", outline: HomeIcon, solid: HomeIconSolid },
@@ -60,9 +61,13 @@ const Navbar: React.FC = () => {
           );
         })}
         {/* botton modal post */}
-        <div className={`${btnStyle} bg-[#171717]`}>
-          <PlusIcon className="w-8 h-8" />
-        </div>
+        <Link
+          to={"/home"}
+          onClick={() => setNewPostModal(true)}
+          className={`${btnStyle} bg-[rgb(23,23,23)] button-theme`}
+        >
+          <PlusIcon className="w-8 h-8 button-theme" />
+        </Link>
         {/* iconos activity y perfil */}
         {navItems2.map(({ path, outline: OutlineIcon, solid: SolidIcon }) => {
           const isActive = location.pathname === path;

@@ -39,7 +39,10 @@ const Home: React.FC = () => {
   };
 
   // Filtrado por id de post seleccionado
-  const filterInfo = PostData.find((post) => post.id === selectedPost) || null;
+  const filterInfo =
+    PostData.find((post) => post.id === selectedPost) ||
+    NewPost.find((post) => post.id === selectedPost) ||
+    null;
 
   return (
     <>

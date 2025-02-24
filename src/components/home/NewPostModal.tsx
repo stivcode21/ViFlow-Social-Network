@@ -42,6 +42,7 @@ const NewPostModal: React.FC = () => {
         </button>
       </header>
       <div className="mx-6 my-4 relative">
+        {/* Info Usuario */}
         <div className="flex items-center gap-2 text-sm">
           <img
             src={logoState || "/userPreviu.webp"}
@@ -60,6 +61,7 @@ const NewPostModal: React.FC = () => {
             />
           </div>
         </div>
+        {/* Iconos */}
         <ul className="ml-4 pl-6 pb-2 border-l-3 border-style mt-2 flex gap-4 text-[#888] transition-all ease-in-out">
           <li className="cursor-pointer hover:text-white">
             <Bars3CenterLeftIcon className="w-5 h-5" />
@@ -68,14 +70,16 @@ const NewPostModal: React.FC = () => {
             <PhotoIcon className="w-5 h-5" />
           </li>
         </ul>
+        {/* Agregar hilo */}
         <div className="flex gap-2 ml-1 mt-2 items-center">
           <img
             src={logoState || "/userPreviu.webp"}
             alt="logo"
-            className="w-6 h-6 object-contain rounded-full opacity-50"
+            className="w-6 h-6 object-cover object-center rounded-full opacity-50"
           />
           <p className="text-[#555] text-xs">Agregar a hilo</p>
         </div>
+        {/* Boton */}
         <button
           onClick={handleToPost}
           className="px-4 py-1 border border-style rounded-xl shadow button-theme absolute bottom-0 right-0"

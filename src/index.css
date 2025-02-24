@@ -31,7 +31,7 @@ html {
 
   /* Blur-Effect */
   .blur-effect-theme {
-    @apply bg-[#0A0A0A]/50 bg-clip-padding backdrop-filter backdrop-blur opacity-100 z-[100] transition-all duration-300;
+    @apply bg-[#0A0A0A]/50 bg-clip-padding backdrop-filter backdrop-blur-lg opacity-100 z-[100] transition-all duration-300;
   }
 
   /* ======= MEDIA QUERIES ======= */
