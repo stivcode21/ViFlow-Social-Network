@@ -7,8 +7,8 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="h-screen w-full">
-      <div className="margin md:bg-[#181818] md:mt-6 border border-style md:rounded-t-2xl">
+    <div className="h-auto w-full">
+      <div className="margin md:bg-[#181818] md:mt-6 border border-style md:rounded-t-2xl pb-0.5">
         {children}
       </div>
       <Navbar />

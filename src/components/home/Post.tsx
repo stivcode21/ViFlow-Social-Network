@@ -44,7 +44,7 @@ const Post: React.FC<PostProps> = ({
           <img
             src={img || "/userPreviu.webp"}
             alt="logo"
-            className="w-9 h-9 object-contain rounded-full"
+            className="w-9 h-9 object-cover object-center rounded-full"
           />
           <div>
             <div className="flex gap-4">

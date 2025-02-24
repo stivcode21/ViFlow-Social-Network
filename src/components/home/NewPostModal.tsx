@@ -6,10 +6,28 @@ import {
 import FormModalLayout from "../../layouts/FormModalLayout";
 import { useIuStore } from "../../store/uiStore";
 import { useUserStore } from "../../store/userStore";
+import { addToPost, PostType } from "../../data/data";
+import { useState } from "react";
 
 const NewPostModal: React.FC = () => {
+  const [postState, setPostState] = useState<string>("");
+
+  //estados globales
   const { setNewPostModal } = useIuStore();
   const { nameState, logoState } = useUserStore();
+
+  const handleToPost = () => {
+    const post: PostType = {
+      id: 1, // Se actualizará al añadirlo
+      img: logoState,
+      name: nameState,
+      post: postState,
+      time: "Justo ahora",
+    };
+    addToPost(post);
+    setPostState("");
+    setNewPostModal(false);
+  };
 
   return (
     <FormModalLayout>
@@ -35,6 +53,8 @@ const NewPostModal: React.FC = () => {
             <input
               type="text"
               autoFocus
+              value={postState}
+              onChange={(e) => setPostState(e.target.value)}
               placeholder="¿Qué novedades tienes?"
               className="w-full text-white font-extralight text-sm outline-none"
             />
@@ -56,7 +76,10 @@ const NewPostModal: React.FC = () => {
           />
           <p className="text-[#555] text-xs">Agregar a hilo</p>
         </div>
-        <button className="px-4 py-1 border border-style rounded-xl shadow button-theme absolute bottom-0 right-0">
+        <button
+          onClick={handleToPost}
+          className="px-4 py-1 border border-style rounded-xl shadow button-theme absolute bottom-0 right-0"
+        >
           Publicar
         </button>
       </div>

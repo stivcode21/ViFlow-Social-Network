@@ -39,7 +39,7 @@ const NewComment: React.FC<CommentProps> = ({
           <img
             src={commentData.img || "/userPreviu.webp"}
             alt="logo"
-            className="w-9 h-9 object-contain rounded-full"
+            className="w-9 h-9 object-cover object-center rounded-full"
           />
           <div>
             <div className="flex gap-4">

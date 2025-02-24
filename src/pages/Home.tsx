@@ -1,12 +1,12 @@
 import NewPostHeader from "../components/home/NewPostHeader";
 import Post from "../components/home/Post";
 import MainLayout from "../layouts/MainLayout";
-import { PostData, addCommentToPost, CommentType } from "../data/data";
-import NewComment from "../components/home/newComment";
+import { PostData, addCommentToPost, CommentType, NewPost } from "../data/data";
 import { useState } from "react";
 import { useUserStore } from "../store/userStore";
 import { useIuStore } from "../store/uiStore";
 import NewPostModal from "../components/home/NewPostModal";
+import NewComment from "../components/home/NewComment";
 
 const Home: React.FC = () => {
   const [modalComment, setModalComment] = useState(false);
@@ -60,6 +60,19 @@ const Home: React.FC = () => {
       <MainLayout>
         <div className="w-full h-auto">
           <NewPostHeader />
+          {NewPost?.map((post, index) => (
+            <Post
+              key={index}
+              img={post.img}
+              name={post.name}
+              post={post.post}
+              time={post.time}
+              amountLike={post.amountLike}
+              amountComments={post.amountComments}
+              amountRepost={post.amountRepost}
+              toggleModalComment={() => handleCommentClick(post.id)}
+            />
+          ))}
           {PostData?.map((post, index) => (
             <Post
               key={index}

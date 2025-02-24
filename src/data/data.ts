@@ -18,9 +18,11 @@ export interface CommentType {
   time: string;
 }
 
+const NewPost: PostType[] = [];
+
 const PostData: PostType[] = [
   {
-    id: 1,
+    id: 121,
     img: "https://www.stivcode.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fdata-shop-f5bf3.appspot.com%2Fo%2FimgPortfolio%252Flogo.webp%3Falt%3Dmedia%26token%3Dc5b081ed-dc7f-4607-95fb-2b1eb4734400&w=750&q=75",
     name: "Stivcode21",
     post: "Hola busco gente para charlar",
@@ -53,7 +55,7 @@ const PostData: PostType[] = [
     ],
   },
   {
-    id: 2,
+    id: 21,
     img: "https://seeklogo.com/images/G/goku-symbol-logo-C40151C42B-seeklogo.com.png",
     name: "Darek132",
     post: "Hola soy Darek",
@@ -63,18 +65,52 @@ const PostData: PostType[] = [
     comments: [],
   },
   {
-    id: 3,
-    name: "pepito",
-    post: "El pepe",
+    id: 41,
+    img: "https://www.mundodeportivo.com/files/content_image_mobile_filter/uploads/2022/02/01/61f9024874f45.jpeg",
+    name: "Luis Díaz",
+    post: "Preparándome para el próximo partido!",
+    time: "10 minutos",
+    amountLike: 34,
+    amountRepost: 3,
+    comments: [],
+  },
+  {
+    id: 51,
+    img: "https://caracoltv.brightspotcdn.com/dims4/default/6740d61/2147483647/strip/true/crop/1312x967+0+0/resize/624x460!/quality/75/?url=https%3A%2F%2Fcaracol-brightspot.s3-us-west-2.amazonaws.com%2Fassets%2Fgol%2Ffalcao_garcia_colombia_230420_cole.jpg",
+    name: "Falcao",
+    post: "Entrenamiento duro hoy. ¡Vamos con todo!",
+    time: "15 minutos",
+    amountLike: 45,
+    amountRepost: 5,
+    comments: [],
+  },
+  {
+    id: 62,
+    img: "https://i.pinimg.com/736x/86/17/9d/86179d3c627d8524ca41d20472a785c1.jpg",
+    name: "James Rodríguez",
+    post: "Contento de estar de vuelta en el campo. #VamosEquipo",
     time: "20 minutos",
-    amountLike: 1,
+    amountLike: 50,
+    amountRepost: 6,
+    comments: [],
+  },
+  {
+    id: 72,
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
+    name: "Cristiano Ronaldo",
+    post: "¡Gran victoria hoy! Gracias a todos por el apoyo.",
+    time: "30 minutos",
+    amountLike: 100,
+    amountRepost: 10,
     comments: [],
   },
 ];
 
 //añadir comentario
 export const addCommentToPost = (postId: number, comment: CommentType) => {
-  const post = PostData.find((post) => post.id === postId);
+  const post =
+    PostData.find((post) => post.id === postId) ||
+    NewPost.find((post) => post.id === postId);
   if (post) {
     comment.id = post.comments ? post.comments.length + 1 : 1;
     post.comments = post.comments ? [...post.comments, comment] : [comment];
@@ -82,4 +118,16 @@ export const addCommentToPost = (postId: number, comment: CommentType) => {
   }
 };
 
-export { PostData };
+//añadir post
+export const addToPost = (post: PostType) => {
+  if (!post) return;
+
+  // Asignar un ID único al post basado en la cantidad de posts existentes
+  const newPostId = NewPost.length > 0 ? NewPost[NewPost.length - 1].id + 1 : 1;
+  post.id = newPostId;
+
+  // Agregar al array de posts
+  NewPost.push(post);
+};
+
+export { PostData, NewPost };
