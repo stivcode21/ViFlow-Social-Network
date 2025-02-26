@@ -37,9 +37,12 @@ const Post: React.FC<PostProps> = ({
     setLocalLikes((prev) => (newLikedState ? prev + 1 : prev - 1));
   };
 
+  const btnStyle =
+    "flex items-center button-theme justify-center gap-x-1 text-[#ccc] hover:text-white rounded-2xl transition-all ease-in-out p-1 hover:bg-[#202020] cursor-pointer";
+
   return (
     <section className="w-full h-auto px-6 border-b border-style">
-      <div className="relative py-4">
+      <div className="relative pt-4 pb-2">
         <div className="flex items-start gap-2 text-sm">
           <img
             src={img || "/userPreviu.webp"}
@@ -55,32 +58,24 @@ const Post: React.FC<PostProps> = ({
           </div>
         </div>
         {/* botones */}
-        <ul className="ml-10 mt-3 flex gap-4">
-          <li
-            onClick={handleLiked}
-            className="button-theme flex gap-1 items-center"
-          >
+        <ul className="ml-10 mt-2 flex gap-4 transition-all ease-in-out">
+          <li className={`${btnStyle}`} onClick={handleLiked}>
             <HeartIcon
               className={`w-6 h-6 ${
                 liked ? "fill-red-500 stroke-red-500" : "fill-none text-white"
               }`}
             />
-            <p className="text-xs text-[#ccc] ">
-              {localLikes > 0 ? localLikes : ""}
-            </p>
+            <p className="text-xs ">{localLikes > 0 ? localLikes : ""}</p>
           </li>
 
-          <li
-            onClick={toggleModalComment}
-            className="button-theme flex gap-1 items-center"
-          >
+          <li className={`${btnStyle}`} onClick={toggleModalComment}>
             <ChatBubbleOvalLeftIcon className="w-6 h-6" />
-            <p className="text-xs text-[#ccc] ">{amountComments}</p>
+            <p className="text-xs">{amountComments}</p>
           </li>
 
-          <li className="button-theme flex gap-1 items-center">
+          <li className={`${btnStyle}`}>
             <ArrowPathRoundedSquareIcon className="w-6 h-6" />
-            <p className="text-xs text-[#ccc] ">{amountRepost}</p>
+            <p className="text-xs">{amountRepost}</p>
           </li>
         </ul>
 

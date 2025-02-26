@@ -33,9 +33,9 @@ const NewComment: React.FC<CommentProps> = ({
         </button>
       </header>
       {/* container scroll */}
-      <div className="px-4 py-4 overflow-y-scroll h-auto max-h-[350px] [&::-webkit-scrollbar]:hidden ">
+      <div className="px-4 pt-4 pb-2 overflow-y-scroll h-auto max-h-[350px] [&::-webkit-scrollbar]:hidden ">
         {/* usuario y comentario */}
-        <div className="flex items-start gap-2 text-sm mb-6">
+        <div className="flex items-start gap-2 text-sm">
           <img
             src={commentData.img || "/userPreviu.webp"}
             alt="logo"
@@ -49,6 +49,8 @@ const NewComment: React.FC<CommentProps> = ({
             <p className="text-[#ddd]">{commentData.post}</p>
           </div>
         </div>
+        {/* separador */}
+        <div className="w-full h-6 border-l-3 border-style ml-4 mt-1"></div>
 
         {/* comentarios */}
         {commentData.comments?.map((comment, i) => (

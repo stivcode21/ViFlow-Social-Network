@@ -7,7 +7,7 @@ const NewPostHeader: React.FC = () => {
   const { setNewPostModal } = useIuStore();
 
   return (
-    <header className="px-6 mt-2 py-4 border-b border-style flex items-center w-full gap-2">
+    <header className="px-6 mt-2 py-4 border-b border-style hidden md:flex items-center w-full gap-2">
       <img
         src={logoState}
         alt="logo"

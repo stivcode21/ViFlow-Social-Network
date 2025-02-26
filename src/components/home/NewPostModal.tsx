@@ -29,6 +29,9 @@ const NewPostModal: React.FC = () => {
     setNewPostModal(false);
   };
 
+  const btnStyle =
+    "flex items-center button-theme justify-center gap-x-1 text-[#ccc] hover:text-white rounded-2xl transition-all ease-in-out p-1 px-2 hover:bg-[#202020] cursor-pointer";
+
   return (
     <FormModalLayout>
       {/* Header */}
@@ -63,21 +66,21 @@ const NewPostModal: React.FC = () => {
         </div>
         {/* Iconos */}
         <ul className="ml-4 pl-6 pb-2 border-l-3 border-style mt-2 flex gap-4 text-[#888] transition-all ease-in-out">
-          <li className="cursor-pointer hover:text-white">
+          <li className={`${btnStyle}`}>
             <Bars3CenterLeftIcon className="w-5 h-5" />
           </li>
-          <li className="cursor-pointer hover:text-white">
+          <li className={`${btnStyle}`}>
             <PhotoIcon className="w-5 h-5" />
           </li>
         </ul>
         {/* Agregar hilo */}
-        <div className="flex gap-2 ml-1 mt-2 items-center">
+        <div className="flex gap-2 ml-1 mt-2 items-center select-none">
           <img
             src={logoState || "/userPreviu.webp"}
             alt="logo"
-            className="w-6 h-6 object-cover object-center rounded-full opacity-50"
+            className="w-6 h-6 object-cover object-center rounded-full opacity-50 cursor-no-drop"
           />
-          <p className="text-[#555] text-xs">Agregar a hilo</p>
+          <p className="text-[#555] text-xs cursor-no-drop">Agregar a hilo</p>
         </div>
         {/* Boton */}
         <button

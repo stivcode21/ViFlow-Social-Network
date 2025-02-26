@@ -67,7 +67,7 @@ html {
 
   .hover-fill::before {
     content: "";
-    @apply absolute inset-0 bg-[#171717] transition-transform ease-in-out duration-100;
+    @apply absolute inset-0 transition-transform bg-[#171717] ease-in-out duration-100;
     transform: scaleX(0);
     transform-origin: center;
     z-index: -1;

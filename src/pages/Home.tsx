@@ -1,12 +1,12 @@
 import NewPostHeader from "../components/home/NewPostHeader";
 import Post from "../components/home/Post";
-import MainLayout from "../layouts/MainLayout";
 import { PostData, addCommentToPost, CommentType, NewPost } from "../data/data";
 import { useState } from "react";
 import { useUserStore } from "../store/userStore";
 import { useIuStore } from "../store/uiStore";
 import NewPostModal from "../components/home/NewPostModal";
 import NewComment from "../components/home/NewComment";
+import MainLayout from "../layouts/MainLayout";
 
 const Home: React.FC = () => {
   const [modalComment, setModalComment] = useState(false);
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
 
       {/*------- Layout principal -------- */}
       <MainLayout>
-        <div className="w-full h-auto">
+        <div className="w-full h-auto pb-14 md:pb-0.5">
           <NewPostHeader />
           {NewPost?.map((post, index) => (
             <Post
