@@ -5,8 +5,10 @@ import {
   EllipsisHorizontalIcon,
 } from "@heroicons/react/24/outline";
 import { ReactNode, useState } from "react";
+import ImgProfile from "../../utils/ImgProfile";
 
 interface PostProps {
+  id: number;
   img?: string;
   post: ReactNode;
   name: string;
@@ -18,6 +20,7 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({
+  id,
   img,
   post,
   name,
@@ -38,17 +41,13 @@ const Post: React.FC<PostProps> = ({
   };
 
   const btnStyle =
-    "flex items-center button-theme justify-center gap-x-1 text-[#ccc] hover:text-white rounded-2xl transition-all ease-in-out p-1 hover:bg-[#202020] cursor-pointer";
+    "flex items-center button-theme justify-center gap-x-1 text-[#ccc] hover:text-white rounded-2xl transition-all ease-in-out p-1 hover:bg-[#202020] cursor-pointer  hover:scale-105 active:scale-90 ";
 
   return (
     <section className="w-full h-auto px-6 border-b border-style">
       <div className="relative pt-4 pb-2">
         <div className="flex items-start gap-2 text-sm">
-          <img
-            src={img || "/userPreviu.webp"}
-            alt="logo"
-            className="w-9 h-9 object-cover object-center rounded-full"
-          />
+          <ImgProfile id={id} img={img} />
           <div>
             <div className="flex gap-4">
               <p className="">{name}</p>

@@ -8,6 +8,7 @@ export interface PostType {
   amountComments?: number;
   amountRepost?: number;
   comments?: CommentType[];
+  follow?: boolean;
 }
 
 export interface CommentType {
@@ -62,7 +63,7 @@ const PostData: PostType[] = [
     id: 2,
     img: "https://seeklogo.com/images/G/goku-symbol-logo-C40151C42B-seeklogo.com.png",
     name: "Darek132",
-    post: "Hola soy Darek",
+    post: "Parcheseee!",
     time: "1 hora",
     amountLike: 12,
     amountRepost: 2,

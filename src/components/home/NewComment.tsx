@@ -1,6 +1,7 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { CommentType } from "../../data/data";
 import FormModalLayout from "../../layouts/FormModalLayout";
+import ImgProfile from "../../utils/ImgProfile";
 
 interface CommentProps {
   toggleModalComment: () => void;
@@ -36,11 +37,7 @@ const NewComment: React.FC<CommentProps> = ({
       <div className="px-4 pt-4 pb-2 overflow-y-scroll h-auto max-h-[350px] [&::-webkit-scrollbar]:hidden ">
         {/* usuario y comentario */}
         <div className="flex items-start gap-2 text-sm">
-          <img
-            src={commentData.img || "/userPreviu.webp"}
-            alt="logo"
-            className="w-9 h-9 object-cover object-center rounded-full"
-          />
+          <ImgProfile img={commentData.img} />
           <div>
             <div className="flex gap-4">
               <p className="">{commentData.name}</p>
@@ -56,11 +53,7 @@ const NewComment: React.FC<CommentProps> = ({
         {commentData.comments?.map((comment, i) => (
           <div className="border-l-3 border-style ml-4 pl-4 pb-4" key={i}>
             <div className=" flex items-start gap-2 text-sm">
-              <img
-                src={comment.img || "/userPreviu.webp"}
-                alt="logo"
-                className="w-9 h-9 object-cover object-center rounded-full"
-              />
+              <ImgProfile img={comment.img} />
               <div>
                 <div className="flex gap-4">
                   <p className="">{comment.name}</p>

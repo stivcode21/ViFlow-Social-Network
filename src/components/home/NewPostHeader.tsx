@@ -1,3 +1,4 @@
+import ImgProfile from "../../utils/ImgProfile";
 import { useIuStore } from "../../store/uiStore";
 import { useUserStore } from "../../store/userStore";
 
@@ -8,11 +9,7 @@ const NewPostHeader: React.FC = () => {
 
   return (
     <header className="px-6 mt-2 py-4 border-b border-style hidden md:flex items-center w-full gap-2">
-      <img
-        src={logoState}
-        alt="logo"
-        className="w-9 h-9 object-cover object-center rounded-full"
-      />
+      <ImgProfile img={logoState} />
       <input
         type="text"
         onClick={() => setNewPostModal(true)}

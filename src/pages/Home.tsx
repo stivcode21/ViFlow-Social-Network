@@ -60,12 +60,13 @@ const Home: React.FC = () => {
       )}
 
       {/*------- Layout principal -------- */}
-      <MainLayout>
+      <MainLayout nameSection="Para ti">
         <div className="w-full h-auto pb-14 md:pb-0.5">
           <NewPostHeader />
           {NewPost?.map((post, index) => (
             <Post
               key={index}
+              id={post.id}
               img={post.img}
               name={post.name}
               post={post.post}
@@ -79,6 +80,7 @@ const Home: React.FC = () => {
           {PostData?.map((post, index) => (
             <Post
               key={index}
+              id={post.id}
               img={post.img}
               name={post.name}
               post={post.post}
