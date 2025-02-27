@@ -88,6 +88,7 @@ const Home: React.FC = () => {
               amountLike={post.amountLike}
               amountComments={post.amountComments}
               amountRepost={post.amountRepost}
+              follow={post.follow}
               toggleModalComment={() => handleCommentClick(post.id)}
             />
           ))}

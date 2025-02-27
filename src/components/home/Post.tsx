@@ -16,6 +16,7 @@ interface PostProps {
   amountLike?: number;
   amountComments?: number;
   amountRepost?: number;
+  follow?: boolean;
   toggleModalComment: () => void;
 }
 
@@ -28,6 +29,7 @@ const Post: React.FC<PostProps> = ({
   amountLike,
   amountComments,
   amountRepost,
+  follow,
   toggleModalComment,
 }) => {
   const [liked, setLiked] = useState(false);
@@ -47,7 +49,7 @@ const Post: React.FC<PostProps> = ({
     <section className="w-full h-auto px-6 border-b border-style">
       <div className="relative pt-4 pb-2">
         <div className="flex items-start gap-2 text-sm">
-          <ImgProfile id={id} img={img} />
+          <ImgProfile id={id} img={img} ifExist={follow} />
           <div>
             <div className="flex gap-4">
               <p className="">{name}</p>

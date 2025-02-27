@@ -58,6 +58,7 @@ const PostData: PostType[] = [
         liked: false,
       },
     ],
+    follow: true,
   },
   {
     id: 2,
@@ -98,6 +99,7 @@ const PostData: PostType[] = [
     amountLike: 50,
     amountRepost: 6,
     comments: [],
+    follow: true,
   },
   {
     id: 6,
