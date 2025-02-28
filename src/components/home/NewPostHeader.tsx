@@ -8,7 +8,7 @@ const NewPostHeader: React.FC = () => {
   const { setNewPostModal } = useIuStore();
 
   return (
-    <header className="px-6 mt-2 py-4 border-b border-style hidden md:flex items-center w-full gap-2">
+    <header className="padding-x mt-2 py-4 border-b border-style hidden md:flex items-center w-full gap-2">
       <ImgProfile img={logoState} />
       <input
         type="text"
@@ -18,7 +18,7 @@ const NewPostHeader: React.FC = () => {
       />
       <button
         onClick={() => setNewPostModal(true)}
-        className="px-6 py-2 border border-style rounded-xl shadow button-theme"
+        className="padding-x py-2 border border-style rounded-xl shadow button-theme"
       >
         Publicar
       </button>

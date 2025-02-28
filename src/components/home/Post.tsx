@@ -46,7 +46,7 @@ const Post: React.FC<PostProps> = ({
     "flex items-center button-theme justify-center gap-x-1 text-[#ccc] hover:text-white rounded-2xl transition-all ease-in-out p-1 hover:bg-[#202020] cursor-pointer  hover:scale-105 active:scale-90 ";
 
   return (
-    <section className="w-full h-auto px-6 border-b border-style">
+    <section className="padding-x w-full h-auto border-b border-style">
       <div className="relative pt-4 pb-2">
         <div className="flex items-start gap-2 text-sm">
           <ImgProfile id={id} img={img} ifExist={follow} />

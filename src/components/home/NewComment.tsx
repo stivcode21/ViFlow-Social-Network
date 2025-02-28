@@ -70,7 +70,7 @@ const NewComment: React.FC<CommentProps> = ({
         ))}
       </div>
       {/* nuevo comentario */}
-      <div className="flex items-center justify-center px-6 pt-1 pb-4">
+      <div className="padding-x flex items-center justify-center pt-1 pb-4">
         <input
           type="text"
           placeholder="Escribe algo..."

@@ -23,7 +23,7 @@ const AuthModal: React.FC = () => {
       {/* background */}
       <div className="bg-gradient-to-b to-black via-black h-full w-full absolute top-0 left-0 opacity-70 -z-10 rounded-2xl"></div>
 
-      <div className="px-6 lg:px-10 h-full flex flex-col gap-y-24">
+      <div className="padding-x lg:px-10 h-full flex flex-col gap-y-24">
         <Routes>
           {routes.map((route, index) => (
             <Route key={index} path={route.path} element={route.element} />
