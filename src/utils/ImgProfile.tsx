@@ -8,11 +8,11 @@ interface imgProps {
 
 const ImgProfile: React.FC<imgProps> = ({ img, id, ifExist }) => {
   return (
-    <div className="relative">
+    <div className="relative w-full h-full">
       <img
         src={img || "/userPreviu.webp"}
         alt={`ProfileUser-${id}`}
-        className="w-9 h-9 object-cover object-center rounded-full"
+        className="w-full h-full object-cover object-center rounded-full"
       />
       {!ifExist && (
         <div className="absolute -right-0.5 -bottom-0.5 p-0.5 bg-white rounded-full text-black hover:scale-105 active:scale-90 transition-all ease-in-out border border-black ">

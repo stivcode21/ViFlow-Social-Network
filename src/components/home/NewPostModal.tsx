@@ -8,6 +8,7 @@ import { useIuStore } from "../../store/uiStore";
 import { useUserStore } from "../../store/userStore";
 import { addToPost, PostType } from "../../data/data";
 import { useState } from "react";
+import ImgProfile from "../../utils/ImgProfile";
 
 const NewPostModal: React.FC = () => {
   const [postState, setPostState] = useState<string>("");
@@ -23,6 +24,7 @@ const NewPostModal: React.FC = () => {
       name: nameState,
       post: postState,
       time: "Justo ahora",
+      follow: true,
     };
     addToPost(post);
     setPostState("");
@@ -47,11 +49,9 @@ const NewPostModal: React.FC = () => {
       <div className="mx-6 my-4 relative">
         {/* Info Usuario */}
         <div className="flex items-center gap-2 text-sm">
-          <img
-            src={logoState || "/userPreviu.webp"}
-            alt="logo"
-            className="w-9 h-9 object-contain rounded-full"
-          />
+          <div className="w-9 h-9">
+            <ImgProfile img={logoState} ifExist={true} />
+          </div>
           <div className="w-full">
             <p className="text-[16px]">{nameState}</p>
             <input

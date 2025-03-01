@@ -24,7 +24,7 @@ const NewPost: PostType[] = [];
 
 const PostData: PostType[] = [
   {
-    id: 1,
+    id: 4,
     img: "https://www.stivcode.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fdata-shop-f5bf3.appspot.com%2Fo%2FimgPortfolio%252Flogo.webp%3Falt%3Dmedia%26token%3Dc5b081ed-dc7f-4607-95fb-2b1eb4734400&w=750&q=75",
     name: "Stivcode21",
     post: "Hola busco gente para charlar",
@@ -61,7 +61,7 @@ const PostData: PostType[] = [
     follow: true,
   },
   {
-    id: 2,
+    id: 5,
     img: "https://seeklogo.com/images/G/goku-symbol-logo-C40151C42B-seeklogo.com.png",
     name: "Darek132",
     post: "Parcheseee!",
@@ -71,7 +71,7 @@ const PostData: PostType[] = [
     comments: [],
   },
   {
-    id: 3,
+    id: 6,
     img: "https://www.mundodeportivo.com/files/content_image_mobile_filter/uploads/2022/02/01/61f9024874f45.jpeg",
     name: "Luis Díaz",
     post: "Preparándome para el próximo partido!",
@@ -81,7 +81,7 @@ const PostData: PostType[] = [
     comments: [],
   },
   {
-    id: 4,
+    id: 7,
     img: "https://caracoltv.brightspotcdn.com/dims4/default/6740d61/2147483647/strip/true/crop/1312x967+0+0/resize/624x460!/quality/75/?url=https%3A%2F%2Fcaracol-brightspot.s3-us-west-2.amazonaws.com%2Fassets%2Fgol%2Ffalcao_garcia_colombia_230420_cole.jpg",
     name: "Falcao",
     post: "Entrenamiento duro hoy. ¡Vamos con todo!",
@@ -91,7 +91,7 @@ const PostData: PostType[] = [
     comments: [],
   },
   {
-    id: 5,
+    id: 8,
     img: "https://i.pinimg.com/736x/86/17/9d/86179d3c627d8524ca41d20472a785c1.jpg",
     name: "James Rodríguez",
     post: "Contento de estar de vuelta en el campo. #VamosEquipo",
@@ -102,7 +102,7 @@ const PostData: PostType[] = [
     follow: true,
   },
   {
-    id: 6,
+    id: 9,
     img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
     name: "Cristiano Ronaldo",
     post: "¡Gran victoria hoy! Gracias a todos por el apoyo.",
@@ -112,7 +112,7 @@ const PostData: PostType[] = [
     comments: [],
   },
   {
-    id: 7,
+    id: 10,
     img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
     name: "Cristiano Ronaldo",
     post: "¡Gran victoria hoy! Gracias a todos por el apoyo.",

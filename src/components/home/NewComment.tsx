@@ -35,9 +35,11 @@ const NewComment: React.FC<CommentProps> = ({
       </header>
       {/* container scroll */}
       <div className="px-4 pt-4 pb-2 overflow-y-scroll h-auto max-h-[350px] [&::-webkit-scrollbar]:hidden ">
-        {/* usuario y comentario */}
+        {/* usuario y post */}
         <div className="flex items-start gap-2 text-sm">
-          <ImgProfile img={commentData.img} />
+          <div className="w-9 h-9">
+            <ImgProfile img={commentData.img} ifExist={true} />
+          </div>
           <div>
             <div className="flex gap-4">
               <p className="">{commentData.name}</p>
@@ -53,7 +55,9 @@ const NewComment: React.FC<CommentProps> = ({
         {commentData.comments?.map((comment, i) => (
           <div className="border-l-3 border-style ml-4 pl-4 pb-4" key={i}>
             <div className=" flex items-start gap-2 text-sm">
-              <ImgProfile img={comment.img} />
+              <div className="w-9 h-9">
+                <ImgProfile img={comment.img} ifExist={true} />
+              </div>
               <div>
                 <div className="flex gap-4">
                   <p className="">{comment.name}</p>

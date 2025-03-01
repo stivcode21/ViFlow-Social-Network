@@ -9,7 +9,9 @@ const NewPostHeader: React.FC = () => {
 
   return (
     <header className="padding-x mt-2 py-4 border-b border-style hidden md:flex items-center w-full gap-2">
-      <ImgProfile img={logoState} />
+      <div className="w-9 h-9">
+        <ImgProfile img={logoState} ifExist={true} />
+      </div>
       <input
         type="text"
         onClick={() => setNewPostModal(true)}
