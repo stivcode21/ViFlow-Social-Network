@@ -1,4 +1,4 @@
-import ImgProfile from "../../utils/ImgProfile";
+// import ImgProfile from "../../utils/ImgProfile";
 import { useIuStore } from "../../store/uiStore";
 import { useUserStore } from "../../store/userStore";
 
@@ -9,9 +9,11 @@ const NewPostHeader: React.FC = () => {
 
   return (
     <header className="padding-x mt-2 py-4 border-b border-style hidden md:flex items-center w-full gap-2">
-      <div className="w-9 h-9">
-        <ImgProfile img={logoState} ifExist={true} />
-      </div>
+      <img
+        src={logoState || "/userPreviu.webp"}
+        alt={`ProfileUser`}
+        className="w-9 h-9 object-cover object-center rounded-full"
+      />
       <input
         type="text"
         onClick={() => setNewPostModal(true)}

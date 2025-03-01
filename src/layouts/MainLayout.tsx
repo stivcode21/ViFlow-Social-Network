@@ -12,15 +12,15 @@ interface MainLayoutProps {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
+  //estado local de nuevo comentario
   const [newComment, setNewComment] = useState<string>("");
 
   //estados globales
-
   const { logoState, nameState } = useUserStore();
   const { newPostModal, newCommentModal, setNewCommentModal, selectedPost } =
     useIuStore();
 
-  // Añadir nuevo comentario
+  //funcion Añadir nuevo comentario
   const handleAddComment = () => {
     if (selectedPost && newComment) {
       const comment: CommentType = {

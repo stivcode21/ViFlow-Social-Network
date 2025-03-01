@@ -48,7 +48,7 @@ const NewComment: React.FC<CommentProps> = ({
             <p className="text-[#ddd]">{commentData.post}</p>
           </div>
         </div>
-        {/* separador */}
+        {/* separador typo bar */}
         <div className="w-full h-6 border-l-3 border-style ml-4 mt-1"></div>
 
         {/* comentarios */}

@@ -11,7 +11,7 @@ const SectionHilos: React.FC = () => {
     setNewCommentModal(true);
   };
   return (
-    <div>
+    <div className="">
       {NewPost?.map((post, index) => (
         <Post
           key={index}
