@@ -2,13 +2,21 @@
 import { useIuStore } from "../../store/uiStore";
 import { useUserStore } from "../../store/userStore";
 
-const NewPostHeader: React.FC = () => {
+interface postHeaderProps {
+  ifExist?: boolean;
+}
+
+const NewPostHeader: React.FC<postHeaderProps> = ({ ifExist }) => {
   const { logoState } = useUserStore();
   // console.log("Logo State:", logoState);
   const { setNewPostModal } = useIuStore();
 
   return (
-    <header className="padding-x mt-2 py-4 border-b border-style hidden md:flex items-center w-full gap-2">
+    <header
+      className={`${
+        ifExist ? "none py-3 flex " : "hidden md:flex mt-2 py-4"
+      } padding-x border-b border-style items-center w-full gap-2`}
+    >
       <img
         src={logoState || "/userPreviu.webp"}
         alt={`ProfileUser`}
@@ -22,7 +30,7 @@ const NewPostHeader: React.FC = () => {
       />
       <button
         onClick={() => setNewPostModal(true)}
-        className="padding-x py-2 border border-style rounded-xl shadow button-theme"
+        className="padding-x py-1.5 border border-style rounded-xl shadow button-theme"
       >
         Publicar
       </button>

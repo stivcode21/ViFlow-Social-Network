@@ -96,3 +96,25 @@ html {
     }
   }
 }
+
+/* Estiliza la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 8px; /* Grosor del scrollbar */
+}
+
+/* Fondo del scrollbar */
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Color oscuro acorde al fondo */
+}
+
+/* Barra desplazadora (el thumb) */
+::-webkit-scrollbar-thumb {
+  background: #8c8c8c; /* Gris claro similar al de Threads */
+  border-radius: 10px; /* Bordes redondeados */
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hover en el thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3; /* Un poco más claro al pasar el mouse */
+}

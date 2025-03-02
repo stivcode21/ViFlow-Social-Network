@@ -6,12 +6,14 @@ import NavbarProfile from "../components/profile/NavbarProfile";
 import SectionHilos from "../components/profile/SectionHilos";
 import MainLayout from "../layouts/MainLayout";
 import SectionRepost from "../components/profile/SectionRepost";
+import HeaderMobile from "../utils/HeaderMobile";
 
 const Profile: React.FC = () => {
   const [navbarProfileState, setNavbarProfileState] = useState(false);
 
   return (
     <MainLayout nameSection="Perfil">
+      <HeaderMobile />
       <InfoUser />
       <ButtonsProfile />
       <NavbarProfile
@@ -22,7 +24,7 @@ const Profile: React.FC = () => {
         <SectionRepost />
       ) : (
         <>
-          <NewPostHeader />
+          <NewPostHeader ifExist={true} />
           <SectionHilos />
         </>
       )}
