@@ -15,13 +15,13 @@ const NewPostModal: React.FC = () => {
 
   //estados globales
   const { setNewPostModal } = useIuStore();
-  const { nameState, logoState } = useUserStore();
+  const { userNameState, logoState } = useUserStore();
 
   const handleToPost = () => {
     const post: PostType = {
       id: 1, // Se actualizará al añadirlo
       img: logoState,
-      name: nameState,
+      name: userNameState,
       post: postState,
       time: "Justo ahora",
       follow: true,
@@ -53,7 +53,7 @@ const NewPostModal: React.FC = () => {
             <ImgProfile img={logoState} ifExist={true} />
           </div>
           <div className="w-full">
-            <p className="text-[16px]">{nameState}</p>
+            <p className="text-[16px]">{userNameState}</p>
             <input
               type="text"
               autoFocus

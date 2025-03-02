@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import {
+  CheckBadgeIcon,
   InformationCircleIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
@@ -11,14 +12,18 @@ const CreateProfile: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [image, setImage] = useState<File | null>(null);
   const [newName, setNewName] = useState<string>("");
+  const [newFullName, setNewFullName] = useState<string>("");
   const [newInfo, setNewInfo] = useState<string>("");
 
-  const { setNameState, setInfoState, setLogoState } = useUserStore(); //estados globales
+  const { setUserNameState, setFullNameState, setInfoState, setLogoState } =
+    useUserStore(); //estados globales
   const navigate = useNavigate(); //variable de navegacion
 
   const handleSubmit = () => {
-    setNameState(newName);
+    setUserNameState(newName);
     localStorage.setItem("userName", newName);
+    setFullNameState(newFullName);
+    localStorage.setItem("userFullName", newFullName);
     setInfoState(newInfo);
     localStorage.setItem("userInfo", newInfo);
     navigate("/home");
@@ -46,6 +51,7 @@ const CreateProfile: React.FC = () => {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-start gap-10">
+      {/* Cambio de imagen de perfil */}
       <div onClick={handleImageClick} className="mt-8 cursor-pointer relative">
         {image ? (
           <img
@@ -73,13 +79,14 @@ const CreateProfile: React.FC = () => {
           <PencilIcon className="w-6 h-6 text-[#6363FF]" />
         </button>
       </div>
+      {/*Campos de informacion */}
       <form className="w-full flex flex-col gap-10">
-        <div>
+        <div className="flex flex-col gap-3">
           <div className="relative">
-            <UserCircleIcon className="w-6 h-6 absolute bottom-2 left-0 text-[#6363FF]" />
+            <CheckBadgeIcon className="w-6 h-6 absolute bottom-2.5 left-0 text-[#6363FF]" />
             <input
               type="text"
-              placeholder="Tu nombre"
+              placeholder="Tu userName"
               className="w-full p-2 text-white pl-8  border-b-2 border-style outline-none"
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
@@ -88,11 +95,23 @@ const CreateProfile: React.FC = () => {
             />
           </div>
           <div className="relative">
-            <InformationCircleIcon className="w-6 h-6 absolute bottom-2 left-0 text-[#6363FF]" />
+            <UserCircleIcon className="w-6 h-6 absolute bottom-2.5 left-0 text-[#6363FF]" />
+            <input
+              type="text"
+              placeholder="Tu nombre"
+              className="w-full p-2 text-white pl-8  border-b-2 border-style outline-none"
+              value={newFullName}
+              onChange={(e) => setNewFullName(e.target.value)}
+              autoFocus
+              required
+            />
+          </div>
+          <div className="relative">
+            <InformationCircleIcon className="w-6 h-6 absolute bottom-2.5 left-0 text-[#6363FF]" />
             <input
               type="text"
               placeholder="¡Hey, estoy usando ViFlow!"
-              className="w-full p-2 text-white border-b-2 pl-8 border-style outline-none mt-4"
+              className="w-full p-2 text-white border-b-2 pl-8 border-style outline-none"
               value={newInfo}
               onChange={(e) => setNewInfo(e.target.value)}
               autoFocus
@@ -100,6 +119,7 @@ const CreateProfile: React.FC = () => {
             />
           </div>
         </div>
+        {/* boton de envio */}
         <button
           type="submit"
           onClick={handleSubmit}

@@ -16,7 +16,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
   const [newComment, setNewComment] = useState<string>("");
 
   //estados globales
-  const { logoState, nameState } = useUserStore();
+  const { logoState, userNameState } = useUserStore();
   const { newPostModal, newCommentModal, setNewCommentModal, selectedPost } =
     useIuStore();
 
@@ -26,7 +26,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
       const comment: CommentType = {
         id: 0, // Se actualizará al añadirlo
         img: logoState,
-        name: nameState,
+        name: userNameState,
         post: newComment,
         time: "Justo ahora",
       };

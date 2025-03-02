@@ -6,13 +6,13 @@ import { useUserStore } from "../../store/userStore";
 import ImgProfile from "../../utils/ImgProfile";
 
 const InfoUser: React.FC = () => {
-  const { logoState, nameState, infoState } = useUserStore();
+  const { logoState, fullNameState, userNameState, infoState } = useUserStore();
   return (
     <div className="padding-x mt-10 md:mt-0">
       <div className="pt-6 pb-2 flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-semibold">Stiven Smith</h1>
-          <h2 className="font-semibold text-[#ccc]">{nameState}</h2>
+          <h1 className="text-2xl font-semibold">{fullNameState}</h1>
+          <h2 className="font-semibold text-[#ccc]">{userNameState}</h2>
         </div>
         <div className="w-24 h-24">
           <ImgProfile img={logoState} ifExist={true} />

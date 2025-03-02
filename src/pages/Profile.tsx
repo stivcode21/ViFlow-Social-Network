@@ -13,21 +13,23 @@ const Profile: React.FC = () => {
 
   return (
     <MainLayout nameSection="Perfil">
-      <HeaderMobile />
-      <InfoUser />
-      <ButtonsProfile />
-      <NavbarProfile
-        toggleNavbar={setNavbarProfileState}
-        navbarState={navbarProfileState}
-      />
-      {navbarProfileState ? (
-        <SectionRepost />
-      ) : (
-        <>
-          <NewPostHeader ifExist={true} />
-          <SectionHilos />
-        </>
-      )}
+      <div className="w-full h-full pb-14 md:pb-0.5">
+        <HeaderMobile />
+        <InfoUser />
+        <ButtonsProfile />
+        <NavbarProfile
+          toggleNavbar={setNavbarProfileState}
+          navbarState={navbarProfileState}
+        />
+        {navbarProfileState ? (
+          <SectionRepost />
+        ) : (
+          <>
+            <NewPostHeader ifExist={true} />
+            <SectionHilos />
+          </>
+        )}
+      </div>
     </MainLayout>
   );
 };
