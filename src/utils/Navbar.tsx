@@ -18,7 +18,9 @@ import { useIuStore } from "../store/uiStore";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
-  const { setNewPostModal } = useIuStore();
+
+  //estados globales
+  const { setNewPostModal, setMenuDestokModal } = useIuStore();
 
   const btnStyle =
     "W-full h-full hover-fill text-[#888] hover:text-white px-7 sm:px-9 md:px-3 py-2 rounded-xl transition-all ease-in-out";
@@ -83,7 +85,10 @@ const Navbar: React.FC = () => {
         })}
       </div>
       {/* Menu icon */}
-      <div className="p-2 text-[#888] hover:text-white hidden md:block">
+      <div
+        onClick={() => setMenuDestokModal(true)}
+        className="p-2 text-[#888] hover:text-white hidden md:block"
+      >
         <Bars3BottomLeftIcon className="w-8 h-8 mb-2" />
       </div>
     </nav>

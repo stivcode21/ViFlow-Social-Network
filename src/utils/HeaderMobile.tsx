@@ -10,7 +10,7 @@ const HeaderMobile: React.FC = () => {
         className="w-10 h-10 object-contain mt-2 hover:scale-105 transition-all ease-in-out"
       />
       {/* Menu icon */}
-      <div className="p-2 text-[#888] hover:text-white absolute right-4">
+      <div className="p-2 text-[#888] hover:text-white absolute top-2 right-4">
         <Bars3BottomRightIcon className="w-8 h-8 mb-2" />
       </div>
     </nav>

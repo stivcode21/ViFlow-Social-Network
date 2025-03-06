@@ -3,6 +3,7 @@ import Post from "../components/home/Post";
 import { PostData, NewPost } from "../data/data";
 import MainLayout from "../layouts/MainLayout";
 import { useIuStore } from "../store/uiStore";
+import HeaderMobile from "../utils/HeaderMobile";
 
 const Home: React.FC = () => {
   //estados globales

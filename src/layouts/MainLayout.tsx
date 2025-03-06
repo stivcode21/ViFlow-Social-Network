@@ -5,6 +5,7 @@ import { useIuStore } from "../store/uiStore";
 import { addCommentToPost, CommentType, NewPost, PostData } from "../data/data";
 import NewComment from "../components/home/NewComment";
 import { useUserStore } from "../store/userStore";
+import ModalMenu from "../utils/ModalMenu";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -17,8 +18,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
 
   //estados globales
   const { logoState, userNameState } = useUserStore();
-  const { newPostModal, newCommentModal, setNewCommentModal, selectedPost } =
-    useIuStore();
+  const {
+    newPostModal,
+    newCommentModal,
+    menuDestokModal,
+    setNewCommentModal,
+    selectedPost,
+  } = useIuStore();
 
   //funcion Añadir nuevo comentario
   const handleAddComment = () => {
@@ -56,6 +62,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
           handleAddComment={handleAddComment} //agregar nuevo comentario
         />
       )}
+
+      {menuDestokModal && <ModalMenu />}
 
       {/*------- Layout principal -------- */}
       <h2 className="hidden md:flex justify-center md:my-3 font-semibold bg-[#0a0a0a] z-50">
