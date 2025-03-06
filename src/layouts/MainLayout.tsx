@@ -6,6 +6,7 @@ import { addCommentToPost, CommentType, NewPost, PostData } from "../data/data";
 import NewComment from "../components/home/NewComment";
 import { useUserStore } from "../store/userStore";
 import ModalMenu from "../utils/ModalMenu";
+import HeaderMobile from "../utils/HeaderMobile";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -22,6 +23,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
     newPostModal,
     newCommentModal,
     menuDestokModal,
+    menuMobileModal,
     setNewCommentModal,
     selectedPost,
   } = useIuStore();
@@ -63,14 +65,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
         />
       )}
 
+      {/* Modal del menu general */}
       {menuDestokModal && <ModalMenu />}
+      {menuMobileModal && <ModalMenu ifMobile={true} />}
 
       {/*------- Layout principal -------- */}
       <h2 className="hidden md:flex justify-center md:my-3 font-semibold bg-[#0a0a0a] z-50">
         {nameSection}
       </h2>
+      <HeaderMobile />
       {/* Contenedor de contenido */}
-      <div className="margin md:bg-[#181818] border border-style md:rounded-t-2xl">
+      <div className="margin md:bg-[#181818] border border-style border-b-transparent md:rounded-t-2xl pt-14 md:pt-0">
         {children}
       </div>
       <Navbar />

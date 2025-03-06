@@ -6,15 +6,13 @@ import NavbarProfile from "../components/profile/NavbarProfile";
 import SectionHilos from "../components/profile/SectionHilos";
 import MainLayout from "../layouts/MainLayout";
 import SectionRepost from "../components/profile/SectionRepost";
-import HeaderMobile from "../utils/HeaderMobile";
 
 const Profile: React.FC = () => {
   const [navbarProfileState, setNavbarProfileState] = useState(false);
 
   return (
     <MainLayout nameSection="Perfil">
-      <div className="w-full h-full pb-14 md:pb-0.5">
-        <HeaderMobile />
+      <div className="w-full h-full mb-14 md:mb-0.5">
         <InfoUser />
         <ButtonsProfile />
         <NavbarProfile

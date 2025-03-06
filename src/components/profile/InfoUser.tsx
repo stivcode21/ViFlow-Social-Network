@@ -8,7 +8,7 @@ import ImgProfile from "../../utils/ImgProfile";
 const InfoUser: React.FC = () => {
   const { logoState, fullNameState, userNameState, infoState } = useUserStore();
   return (
-    <div className="padding-x mt-10 md:mt-0">
+    <div className="padding-x">
       <div className="pt-6 pb-2 flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold">{fullNameState}</h1>
