@@ -6,6 +6,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { ReactNode, useState } from "react";
 import ImgProfile from "../../utils/ImgProfile";
+import OptionsPostModal from "../../utils/OptionsPostModal";
+import { useIuStore } from "../../store/uiStore";
 
 interface PostProps {
   id: number;
@@ -42,8 +44,25 @@ const Post: React.FC<PostProps> = ({
     setLocalLikes((prev) => (newLikedState ? prev + 1 : prev - 1));
   };
 
+  //estado modal options
+  const {
+    optionsPostState,
+    setOptionsPostState,
+    setSelectedPost,
+    selectedPost,
+  } = useIuStore();
+
+  const handleOptionsPost = (id: number) => {
+    if (selectedPost === id) {
+      setOptionsPostState(!optionsPostState);
+    } else {
+      setSelectedPost(id);
+      setOptionsPostState(true);
+    }
+  };
+
   const btnStyle =
-    "flex items-center button-theme justify-center gap-x-1 text-[#ccc] hover:text-white rounded-2xl transition-all ease-in-out p-1 hover:bg-[#202020] cursor-pointer  hover:scale-105 active:scale-90 ";
+    "flex items-center button-theme justify-center gap-x-1 text-[#ccc] hover:text-white rounded-2xl transition-all ease-in-out p-1 hover:bg-[#202020] cursor-pointer hover:scale-105 active:scale-90 ";
 
   return (
     <section className="padding-x w-full h-auto border-b border-style">
@@ -82,8 +101,16 @@ const Post: React.FC<PostProps> = ({
           </li>
         </ul>
 
-        <button className="button-theme absolute top-3 right-0">
-          <EllipsisHorizontalIcon className="w-6 h-6" />
+        <button
+          onClick={() => {
+            handleOptionsPost(id);
+          }}
+          className={`${btnStyle} button-theme hover:scale-none  absolute top-3 right-0 z-30`}
+        >
+          <div className="relative">
+            <EllipsisHorizontalIcon className="w-6 h-6" />
+            {optionsPostState && selectedPost === id && <OptionsPostModal />}
+          </div>
         </button>
       </div>
     </section>

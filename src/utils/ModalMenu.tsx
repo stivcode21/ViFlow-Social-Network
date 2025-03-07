@@ -21,7 +21,7 @@ const ModalMenu: React.FC<menuProp> = ({ ifMobile }) => {
       ></div>
       <div
         className={` ${ifMobile ? "top-10 right-4" : "bottom-8 left-14"}
-        fixed modal-content flex items-center justify-center z-50 bg-[#181818] border border-[#2C2D2D] rounded-2xl p-4`}
+        fixed modal-content flex items-center justify-center z-50 bg-[#181818] border border-style rounded-2xl p-4`}
       >
         <ul className="text-sm text-left">
           <li className="py-4 pl-2 pr-6 rounded-2xl cursor-pointer hover:bg-[#202020]">
