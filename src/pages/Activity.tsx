@@ -1,9 +1,10 @@
+import Notifications from "../components/notifications/Notifications";
 import MainLayout from "../layouts/MainLayout";
 
 const Activity: React.FC = () => {
   return (
     <MainLayout nameSection="Actividad">
-      <div className="w-full h-auto bg-red-400">ACTIVITY</div>
+      <Notifications />
     </MainLayout>
   );
 };
