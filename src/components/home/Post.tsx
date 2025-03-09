@@ -105,7 +105,7 @@ const Post: React.FC<PostProps> = ({
           onClick={() => {
             handleOptionsPost(id);
           }}
-          className={`${btnStyle} button-theme hover:scale-none  absolute top-3 right-0 z-30`}
+          className={`${btnStyle} button-theme hover:scale-none absolute top-3 right-0 z-20`}
         >
           <div className="relative">
             <EllipsisHorizontalIcon className="w-6 h-6" />

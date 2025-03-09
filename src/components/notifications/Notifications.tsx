@@ -15,7 +15,7 @@ const notifications = [
 
 export default function Notifications() {
   return (
-    <div className="w-full padding-x text-white py-4 rounded-lg">
+    <div className="w-full padding-x text-white py-4 rounded-lg mb-14 md:mb-0.5">
       {/* Barra de filtros */}
       <FiltersNotifications />
 
