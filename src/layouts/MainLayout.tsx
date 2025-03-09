@@ -10,7 +10,7 @@ import HeaderMobile from "../utils/HeaderMobile";
 
 interface MainLayoutProps {
   children: ReactNode;
-  nameSection: string;
+  nameSection?: string;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children, nameSection }) => {
