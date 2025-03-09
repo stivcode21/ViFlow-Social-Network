@@ -19,7 +19,33 @@ const CreateProfile: React.FC = () => {
     useUserStore(); //estados globales
   const navigate = useNavigate(); //variable de navegacion
 
-  const handleSubmit = () => {
+  //validacion de inputs antes de envio
+  const validateInputs = (): boolean => {
+    let isValid = true;
+
+    document
+      .querySelectorAll<HTMLInputElement>("input[type='text']")
+      .forEach((input) => {
+        if (input.value.trim().length < 3) {
+          input.classList.add("border-red-500"); // Añade un borde rojo si no es válido
+          isValid = false;
+        } else {
+          input.classList.remove("border-red-500"); // Elimina el borde rojo si es válido
+        }
+      });
+
+    return isValid;
+  };
+
+  //envio de formulario
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // Evita el envío por defecto
+
+    if (!validateInputs()) {
+      alert("Todos los campos deben tener al menos 3 caracteres.");
+      return;
+    }
+
     setUserNameState(newName);
     localStorage.setItem("userName", newName);
     setFullNameState(newFullName);
@@ -29,12 +55,14 @@ const CreateProfile: React.FC = () => {
     navigate("/home");
   };
 
+  //toma la referencia del input
   const handleImageClick = () => {
     if (inputRef.current) {
       inputRef.current.click();
     }
   };
 
+  //funcion para agregar imagen
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {

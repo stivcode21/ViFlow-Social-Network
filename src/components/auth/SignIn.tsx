@@ -1,6 +1,14 @@
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignIn: React.FC = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = () => {
+    alert("Usuario no registrado, Crea tu perfil");
+  };
+
   return (
     <>
       <div className="flex flex-col gap-8">
@@ -23,22 +31,38 @@ const SignIn: React.FC = () => {
         </div>
       </div>
 
-      <form action="/home" className="flex flex-col gap-y-8 ">
+      <form action="/" className="flex flex-col gap-y-8 ">
         <input
           type="Email"
           className="w-full py-1 border-b-2 border-[#ccc] outline-none "
           placeholder="Email"
           required
         />
-        <input
-          type="password"
-          className="w-full py-1 border-b-2 border-[#ccc] outline-none "
-          placeholder="Password"
-          required
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            className="w-full py-1 border-b-2 border-[#ccc] outline-none "
+            placeholder="Password"
+            required
+          />
+
+          <button
+            type="button"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? (
+              <EyeSlashIcon className="w-6 h-6 text-gray-500" />
+            ) : (
+              <EyeIcon className="w-6 h-6 text-gray-500" />
+            )}
+          </button>
+        </div>
+
         <button
+          onClick={handleSubmit}
           type="submit"
-          className="mt-8 py-3 px-16 rounded-full bg-[#6363FF] shadow-lg font-semibold text-white"
+          className="button-theme mt-8 py-3 px-16 rounded-full bg-[#6363FF] shadow-lg font-semibold text-white"
         >
           Send
         </button>

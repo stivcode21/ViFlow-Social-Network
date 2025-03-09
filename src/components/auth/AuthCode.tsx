@@ -2,36 +2,30 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthCode = () => {
-  const [code, setCode] = useState(["", "", "", "", "", ""]); // Estado para los 6 números
-  const [isValid, setIsValid] = useState<boolean | null>(null); // Estado de validación
-  const inputsRef = useRef<(HTMLInputElement | null)[]>([]); // Referencia a los inputs
+  const [code, setCode] = useState(["", "", "", "", "", ""]);
+  const [isValid, setIsValid] = useState<boolean | null>(null);
+  const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
+  const navigate = useNavigate();
+  const correctCode = "123456";
 
-  const navigate = useNavigate(); //variable de navegacion
-  const correctCode = "123456"; // Código esperado (simulado)
-
-  // Captura el número ingresado en cada input
   const handleChange = (
     index: number,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const value = event.target.value.replace(/^[A-Z]+$/g, "").slice(0, 1); // Solo 1 número
-
+    const value = event.target.value.replace(/\D/g, "").slice(0, 1);
     const newCode = [...code];
     newCode[index] = value;
     setCode(newCode);
 
-    // Si se completa el código, validar
     if (newCode.join("").length === 6) {
       validateCode(newCode.join(""));
     }
 
-    // Mueve el foco al siguiente input si hay un valor
     if (value && index < 5) {
       inputsRef.current[index + 1]?.focus();
     }
   };
 
-  // Mueve el foco atrás con Backspace
   const handleKeyDown = (
     index: number,
     keyboardEvent: React.KeyboardEvent<HTMLInputElement>
@@ -41,29 +35,29 @@ const AuthCode = () => {
     }
   };
 
-  // Valida el código ingresado
   const validateCode = (enteredCode: string) => {
     setIsValid(enteredCode === correctCode);
   };
 
   useEffect(() => {
     if (isValid) {
-      navigate("/auth/create-profile"); // Redirige a la ruta si el código es válido
+      navigate("/auth/create-profile");
     }
   }, [isValid, navigate]);
 
   return (
-    <div className="h-full w-full flex flex-col items-center relative">
-      <img
-        src="/LogoViflow.webp"
-        alt="logo"
-        className="w-1/2 h-1/2 object-contain absolute top-25 right-25 -z-10 opacity-10"
-      />
-      <div className="w-full h-full flex flex-col items-center justify-center">
-        <h3 className="mb-4 text-center px-4">
-          Ingresa el codigo de verificacion enviado a tu correo:
+    <div className="m-auto w-full flex items-center justify-centerbackdrop-blur-md">
+      <div className="p-6 rounded-lg shadow-lg w-full max-w-md text-center">
+        <img
+          src="/LogoViflow.webp"
+          alt="logo"
+          className="w-16 mx-auto pb-10 opacity-70"
+        />
+        <h3 className="text-lg font-semibold text-white">
+          Ingresa el código de verificación enviado a tu correo:
         </h3>
-        <div className="flex gap-2">
+
+        <div className="flex justify-center gap-3 my-4">
           {[...Array(6)].map((_, i) => (
             <input
               key={i}
@@ -72,22 +66,30 @@ const AuthCode = () => {
               value={code[i]}
               onChange={(event) => handleChange(i, event)}
               onKeyDown={(keyboardEvent) => handleKeyDown(i, keyboardEvent)}
-              className={`w-12 h-12 border rounded-sm text-center text-2xl font-bold outline-none
-                 ${
-                   isValid !== null &&
-                   (isValid ? "border-green-500" : "border-red-500")
-                 }`}
-              maxLength={1} // Solo un número por input
+              className={`w-12 h-12 text-center text-2xl font-bold rounded-lg border-2 bg-white/20 text-white outline-none transition-all
+                ${
+                  isValid !== null
+                    ? isValid
+                      ? "border-green-500"
+                      : "border-red-500"
+                    : "border-white/30"
+                } 
+                focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50`}
+              maxLength={1}
             />
           ))}
         </div>
-      </div>
 
-      {isValid !== null && (
-        <p className={`text-xl ${isValid ? "text-green-500" : "text-red-500"}`}>
-          {isValid ? "✅ Código correcto" : "❌ Código incorrecto"}
-        </p>
-      )}
+        {isValid !== null && (
+          <p
+            className={`mt-2 text-lg font-semibold ${
+              isValid ? "text-green-400" : "text-red-400"
+            }`}
+          >
+            {isValid ? "✅ Código correcto" : "❌ Código incorrecto"}
+          </p>
+        )}
+      </div>
     </div>
   );
 };
